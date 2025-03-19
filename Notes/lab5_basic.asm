@@ -82,4 +82,31 @@ print_loop:
 
 main endp
 end main
+
+;l5 q6
+INCLUDE irvine32.inc
+.data
+	array DWORD 10,20,40,60,80
+.code
+main PROC
+	mov esi,OFFSET array
+	mov eax,[esi]
 	
+	add esi,4
+	sub eax,[esi]
+
+	add esi,4
+	sub eax,[esi]
+
+	add esi,4
+	sub eax,[esi]
+
+	add esi,4
+	sub eax,[esi]
+
+	call writedec
+	call dumpregs
+	exit
+
+main endp
+end main
