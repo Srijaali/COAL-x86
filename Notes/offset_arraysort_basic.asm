@@ -39,3 +39,47 @@ main PROC
 	exit
 main endp
 end main
+
+;lab5 q5:
+INCLUDE irvine32.inc
+.data
+	array1 BYTE 10,20,30,40
+	array2 BYTE 4 DUP(?)
+.code
+main PROC
+	mov esi,OFFSET array1
+	mov edi,OFFSET array2 + 3
+	
+	mov al , [esi] ;to getvalue put []
+	mov [edi],al
+	dec edi
+	inc esi
+
+	mov al,[esi]
+	mov [edi],al
+	dec edi
+	inc esi
+
+	mov al,[esi]
+	mov [edi],al
+	dec edi
+	inc esi
+
+	mov al,[esi]
+	mov [edi],al
+
+	mov esi,OFFSET array2
+	mov ecx,4
+print_loop:
+	mov al,[esi]
+	call writedec
+	inc esi
+	loop print_loop
+
+	call crlf
+	call dumpregs
+	exit
+
+main endp
+end main
+	
